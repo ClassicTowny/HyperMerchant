@@ -24,7 +24,7 @@ public class EnchantIcons {
 		}
 		
 		else if (ename.contains("efficiency")) {
-			stack = new ItemStack(Material.IRON_SPADE);
+			stack = new ItemStack(Material.IRON_SHOVEL);
 			stack.addEnchantment(Enchantment.DIG_SPEED, elevel);
 		}
 		
@@ -39,12 +39,12 @@ public class EnchantIcons {
 		}
 		
 		else if (ename.contains("silktouch") ) {
-			stack = new ItemStack(Material.IRON_SPADE);
+			stack = new ItemStack(Material.IRON_SHOVEL);
 			stack.addEnchantment(Enchantment.SILK_TOUCH, elevel);
 		}
 		
 		else if (ename.contains("fortune")) {
-			stack = new ItemStack(Material.IRON_SPADE);
+			stack = new ItemStack(Material.IRON_SHOVEL);
 			stack.addEnchantment(Enchantment.LOOT_BONUS_BLOCKS, elevel);
 		}
 		
@@ -139,7 +139,7 @@ public class EnchantIcons {
 		}
 		
 		else {
-			stack = new ItemStack(Material.CARROT_STICK);
+			stack = new ItemStack(Material.CARROT_ON_A_STICK);
 			stack.addEnchantment(Enchantment.MENDING, 1);
 		}
 		

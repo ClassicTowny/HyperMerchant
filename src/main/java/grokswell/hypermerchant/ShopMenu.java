@@ -1,7 +1,5 @@
 package grokswell.hypermerchant;
 
-import static java.lang.System.out;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -10,7 +8,6 @@ import java.util.List;
 import net.citizensnpcs.api.npc.NPC;
 
 import org.bukkit.Bukkit;
-import org.bukkit.DyeColor;
 import org.bukkit.GameMode;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -184,7 +181,7 @@ public class ShopMenu implements Listener, MerchantMenu {
         	
 	        if (ho == null) {
 	        	stock=0;
-	        	stack=new ItemStack(Material.AIR, 1, (short) 0);
+	        	stack=new ItemStack(Material.AIR, 1);
 	        	value=0;
 	        	cost=0;
 	        	
@@ -217,10 +214,10 @@ public class ShopMenu implements Listener, MerchantMenu {
 				value = ho.getSellPriceWithTax(1.0, hp);
 				cost = ho.getBuyPriceWithTax(1.0);
 
-				stack = new ItemStack(Material.POTION, 1, (short) 0);
+				stack = new ItemStack(Material.POTION, 1);
 				
 			} else {
-				stack = new ItemStack(Material.AIR, 1, (short) 0);
+				stack = new ItemStack(Material.AIR, 1);
 			}
 	        
 	        //String status = "";
@@ -247,7 +244,7 @@ public class ShopMenu implements Listener, MerchantMenu {
 		
 		ItemStack stack;
 	    while (count < size-9) {
-			stack = new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.SILVER.getWoolData());
+			stack = new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE,1);
 	    	this.setOption(count, stack, " ", " ");
 	    	count++;
 	    }
@@ -398,7 +395,7 @@ public class ShopMenu implements Listener, MerchantMenu {
         	stack = (new EnchantIcons()).getIcon(ho.getDisplayName(), ho.getEnchantmentLevel());
         }
         else if (ho.getType()==TradeObjectType.EXPERIENCE) {
-			stack = new ItemStack(Material.POTION, 1, (short) 0);
+			stack = new ItemStack(Material.POTION, 1);
         }
         else {
         	stack = hypBuk.getItemStack(ho.getItemStack(1));

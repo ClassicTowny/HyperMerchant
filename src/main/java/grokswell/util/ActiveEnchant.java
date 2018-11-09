@@ -8,7 +8,7 @@ import org.bukkit.inventory.ItemStack;
 //Thanks to Captain Bern for this class
 public class ActiveEnchant extends EnchantmentWrapper {
 	 
-    public ActiveEnchant(int id) {
+    public ActiveEnchant(String id) {
         super(id);
     }
     

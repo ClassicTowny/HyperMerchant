@@ -10,7 +10,6 @@ import java.util.List;
 import net.citizensnpcs.api.npc.NPC;
 
 import org.bukkit.Bukkit;
-import org.bukkit.DyeColor;
 import org.bukkit.GameMode;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -31,7 +30,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import regalowl.hyperconomy.HyperConomy;
 import regalowl.hyperconomy.HyperAPI;
 import regalowl.hyperconomy.shop.PlayerShop;
 import regalowl.hyperconomy.tradeobject.TradeObject;
@@ -63,7 +61,6 @@ public class ManageMenu implements Listener, MerchantMenu {
     private ItemStack[] optionIcons;
 	private ShopTransactions shop_trans;
 	private ItemStack sorting_icon;
-	private HyperConomy hc;
 	ArrayList<String> status_list;
 	String economy_name;
 	HyperToBukkit hypBuk;
@@ -129,7 +126,6 @@ public class ManageMenu implements Listener, MerchantMenu {
         this.inventory = Bukkit.createInventory(player, size, this.inventory_name);
 
     	hyplay = hyperAPI.getHyperPlayer(player.getName());
-		hc = HMP.hc;
     	
         economy_name = hyperAPI.getShop(this.shopname).getEconomy();
         
@@ -208,7 +204,7 @@ public class ManageMenu implements Listener, MerchantMenu {
 	        TradeObject ho = hyperAPI.getHyperObject(item_name, economy_name, hyperAPI.getShop(shopname));
 	        if (ho == null) {
 	        	stock=0;
-	        	stack=new ItemStack(Material.AIR, 1, (short) 0);
+	        	stack=new ItemStack(Material.AIR, 1);
 	        	value=0;
 	        	cost=0;
 	        	
@@ -237,10 +233,10 @@ public class ManageMenu implements Listener, MerchantMenu {
 				value = ho.getSellPriceWithTax(1.0, hyplay);
 				cost = ho.getBuyPriceWithTax(1.0);
 
-				stack = new ItemStack(Material.POTION, 1, (short) 0);
+				stack = new ItemStack(Material.POTION);
 				
 			} else {
-				stack = new ItemStack(Material.AIR, 1, (short) 0);
+				stack = new ItemStack(Material.AIR, 1);
 			}
 	        
 	        String buy_dynamic = Utils.formatText(L.II_DYNAMIC, null);
@@ -276,7 +272,7 @@ public class ManageMenu implements Listener, MerchantMenu {
 		
 		ItemStack stack;
 	    while (count < size-9) {
-			stack = new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.SILVER.getWoolData());
+			stack = new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE, 1);
 	    	this.setOption(count, stack, " ", " ");
 	    	count++;
 	    }
@@ -431,7 +427,7 @@ public class ManageMenu implements Listener, MerchantMenu {
         	stack = (new EnchantIcons()).getIcon(ho.getDisplayName(), ho.getEnchantmentLevel());
         }
         else if (ho.getType()==TradeObjectType.EXPERIENCE) {
-			stack = new ItemStack(Material.POTION, 1, (short) 0);
+			stack = new ItemStack(Material.POTION, 1);
         }
         else {
         	stack = hypBuk.getItemStack(ho.getItemStack(1));

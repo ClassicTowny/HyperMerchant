@@ -14,7 +14,6 @@ import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.EnchantmentStorageMeta;
 
 import regalowl.hyperconomy.api.HEconomyProvider;
@@ -29,6 +28,7 @@ import regalowl.hyperconomy.tradeobject.TradeObject;
 import regalowl.hyperconomy.tradeobject.TradeObjectType;
 import regalowl.hyperconomy.transaction.TransactionResponse;
 
+@SuppressWarnings("deprecation")
 public class ShopTransactions {
 	ArrayList<ArrayList<String>> pages = new ArrayList<ArrayList<String>>();
 	int items_count;
@@ -122,6 +122,7 @@ public class ShopTransactions {
 	}
 	
 	// PLAYER SELLS ENCHANT TO SHOP
+	
 	public ItemStack SellSingleEnchant(ItemStack item_stack, String enchant) {
 		//out.println("SellSingleEnchant");
 		HItemStack hi = bukCon.getBukkitCommon().getSerializableItemStack(item_stack);
@@ -150,6 +151,7 @@ public class ShopTransactions {
 		ItemStack stack = new ItemStack(item_stack.clone());
 		if (keep_enchants.size()>0) {
 			for (TradeObject e : keep_enchants){
+				
 				stack.addUnsafeEnchantment(Enchantment.getByName(e.getEnchantment().getEnchantmentName()), e.getEnchantmentLevel());
 			}
 		}
@@ -388,10 +390,8 @@ public class ShopTransactions {
 	//PLAYER-MANAGER ADDS SOMETHING TO SHOP
 	public ItemStack AddItemStack(ItemStack item_stack) {
 		//out.println("AddItemStack: "+item_stack);
-		HItemStack hi = bukCon.getBukkitCommon().getSerializableItemStack(item_stack);
-		PlayerShop pshop=hyperAPI.getPlayerShop(this.shopname);
-		HyperEconomy he = hc.getDataManager().getEconomy(pshop.getEconomy());
-		TradeObject ho = hyplay.getHyperEconomy().getTradeObject(hi);
+		
+		
 		
 		if (item_stack.getType()==Material.ENCHANTED_BOOK) {
 			ItemStack return_item = this.AddEnchantedBook(item_stack);

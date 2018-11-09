@@ -401,7 +401,7 @@ public class HyperMerchantPlugin extends JavaPlugin implements Listener {
     		}
     		
     		try {
-	    		active_enchant = new ActiveEnchant(111); //< this is your custom wrapper (a class that extends an EnchantmentWrapper with the needed stuff and returns
+	    		active_enchant = new ActiveEnchant("hypermerchantWrapper"); //< this is your custom wrapper (a class that extends an EnchantmentWrapper with the needed stuff and returns
 	    		EnchantmentWrapper.registerEnchantment(active_enchant); //<this is used to register the enchantment.
 	    	} catch (IllegalArgumentException e){
     		 

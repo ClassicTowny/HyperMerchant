@@ -8,6 +8,7 @@ import org.bukkit.inventory.ItemStack;
 import regalowl.hyperconomy.inventory.HItemStack;
 import regalowl.hyperconomy.minecraft.HLocation;
 
+
 public class HyperToBukkit {
 
 	
@@ -18,7 +19,7 @@ public class HyperToBukkit {
 	
 	public ItemStack getItemStack(HItemStack hi){
 		Material mat = Material.getMaterial(hi.getMaterial());
-		ItemStack stack = new ItemStack(mat, hi.getAmount(), hi.getDurability());
+		ItemStack stack = new ItemStack(mat, hi.getAmount());
 		return stack;
 	}
 }

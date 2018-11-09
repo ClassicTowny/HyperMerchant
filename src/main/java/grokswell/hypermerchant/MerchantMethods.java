@@ -217,7 +217,7 @@ public class MerchantMethods {
 		}
 		
 		if (l.getBlock().getType() != Material.AIR) {
-			l = utils.getFirstBlockAboveGround(l);
+			l = Utils.getFirstBlockAboveGround(l);
 		}
 
 		this_npc = npcReg.createNPC(EntityType.valueOf(npc_type.toUpperCase()), npcname); 

@@ -5,7 +5,6 @@ import grokswell.hypermerchant.HyperMerchantPlugin;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
@@ -16,6 +15,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+@SuppressWarnings("deprecation")
 public class MenuButtonData {
 	private static File dataFolder;
 	private HyperMerchantPlugin plugin;
@@ -171,7 +171,7 @@ public class MenuButtonData {
     	help4 = new ItemStack(Material.getMaterial(menuButtonData.getString("help4.material")));
     	help4.setDurability(Short.parseShort(menuButtonData.getString("help4.data")));
     	setItemNameAndLore(help4, menuButtonData.getString("help4.name"), ParseLore(menuButtonData.getString("help4.lore")));
-
+    	
     	help5 = new ItemStack(Material.getMaterial(menuButtonData.getString("help5.material")));
     	help5.setDurability(Short.parseShort(menuButtonData.getString("help5.data")));
     	setItemNameAndLore(help5, menuButtonData.getString("help5.name"), ParseLore(menuButtonData.getString("help5.lore")));

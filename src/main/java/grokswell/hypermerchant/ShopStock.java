@@ -197,7 +197,7 @@ public class ShopStock {
 		} 
 		
 		catch (Exception e) {
-			sender.sendMessage(Utils.formatText(L.G_SHOP_OPEN_FAIL, null));
+			sender.sendMessage(Utils.formatText(Language.G_SHOP_OPEN_FAIL, null));
 			return null;
 		}
 	}

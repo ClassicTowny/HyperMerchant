@@ -1,10 +1,10 @@
 first_page:
-  material: STAINED_GLASS_PANE
+  material: WHITE_STAINED_GLASS_PANE
   data: 14
   name: First Page
   lore: Go to the first page.
 back:
-  material: STAINED_GLASS_PANE
+  material: WHITE_STAINED_GLASS_PANE
   data: 5
   name: Back 1
   lore: Go back to the previous page.
@@ -36,12 +36,12 @@ help5:
   name: Switch Sorting Mode
   lore: Left-click switch sorting mode,Right-click toggle zero stock
 forward:
-  material: STAINED_GLASS_PANE
+  material: WHITE_STAINED_GLASS_PANE
   data: 5
   name: Forward 1
   lore: Go to the next page.
 last_page:
-  material: STAINED_GLASS_PANE
+  material: WHITE_STAINED_GLASS_PANE
   data: 14
   name: Last page
   lore: Go to the last page.
@@ -56,7 +56,7 @@ sell_price:
   name: Sell Price
   lore: How much others pay you:,Click this button and then,click items to change price.,Click something else when finished.,Right click items for dynamic pricing
 status:
-  material: REDSTONE_COMPARATOR
+  material: COMPARATOR
   data: 0
   name: Set Status
   lore: Click this button and then,Click items to change their status.,Click something else when finished.
