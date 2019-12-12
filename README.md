@@ -1,4 +1,3 @@
-## Download the latest LifeSupport version from https://github.com/OTGEngineering/OTG-HyperMerchant-LifeSupport/releases    
 HyperMerchant
 =============
 
