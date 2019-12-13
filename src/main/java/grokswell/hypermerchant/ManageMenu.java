@@ -863,7 +863,7 @@ public class ManageMenu implements Listener, MerchantMenu {
     
     
     void onInventoryClickOrCreative(InventoryClickEvent event) {
-        if (event.getInventory().getTitle().equals(this.inventory_name)) {
+        if (event.getView().getTitle().equals(this.inventory_name)) {
     		int slot_num = event.getRawSlot();
             if (slot_num < size) {
             	event.setCancelled(true);

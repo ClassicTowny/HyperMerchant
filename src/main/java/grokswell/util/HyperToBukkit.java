@@ -18,8 +18,11 @@ public class HyperToBukkit {
 	}
 	
 	public ItemStack getItemStack(HItemStack hi){
-		Material mat = Material.getMaterial(hi.getMaterial());
-		ItemStack stack = new ItemStack(mat, hi.getAmount());
-		return stack;
+		if(Material.getMaterial(hi.getMaterial())!=null && hi.getAmount()!=0) {
+			Material mat = Material.getMaterial(hi.getMaterial());
+			ItemStack stack = new ItemStack(mat, hi.getAmount());
+			return stack;
+		}
+		return null;
 	}
 }

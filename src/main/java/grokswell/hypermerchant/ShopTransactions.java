@@ -152,12 +152,12 @@ public class ShopTransactions {
 		if (keep_enchants.size()>0) {
 			for (TradeObject e : keep_enchants){
 				
-				stack.addUnsafeEnchantment(Enchantment.getByName(e.getEnchantment().getEnchantmentName()), e.getEnchantmentLevel());
+				stack.addUnsafeEnchantment(Enchantment.getByName(e.getEnchantment().getEnchantmentKey()), e.getEnchantmentLevel());
 			}
 		}
 		if (remove_enchants.size()>0) {
 			for (TradeObject e : remove_enchants){
-				stack.removeEnchantment(Enchantment.getByName(e.getEnchantment().getEnchantmentName()));
+				stack.removeEnchantment(Enchantment.getByName(e.getEnchantment().getEnchantmentKey()));
 			}
 		}
 		return stack;
@@ -230,7 +230,7 @@ public class ShopTransactions {
 		}
 		if (remove_enchants.size()>0) {
 			for (TradeObject e : remove_enchants){
-				stack.removeEnchantment(Enchantment.getByName(e.getEnchantment().getEnchantmentName()));
+				stack.removeEnchantment(Enchantment.getByName(e.getEnchantment().getEnchantmentKey()));
 			}
 		}
 		return stack;

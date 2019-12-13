@@ -12,13 +12,9 @@
             <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
 		</repository>
 		<repository>
-			<id>grokswell-repo</id>
-			<url>http://www.grokswell.com:8000/repo/</url>
-		</repository>
-		<repository>
-			<id>citizens-repo</id>
-			<url>http://ci.citizensnpcs.co/job/Citizens2/lastSuccessfulBuild/maven-repository/repository/</url>
-		</repository>
+            <id>everything</id>
+            <url>http://repo.citizensnpcs.co/</url>
+        </repository>
 	</repositories>
 	<scm>
 		<developerConnection>scm:git:git@github.com:remremrem/HyperMerchant.git</developerConnection>
@@ -29,34 +25,51 @@
 		<dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.12-R0.1-SNAPSHOT</version>
-			<scope>provided</scope>
+            <version>1.15-R0.1-SNAPSHOT</version>
  		</dependency>
 		<dependency>
 			<groupId>regalowl.hyperconomy</groupId>
-			<artifactId>hyperconomy</artifactId>
-			<version>0.975.7-SNAPSHOT</version>
-			<scope>provided</scope>
+	        <artifactId>hyperconomy</artifactId>
+	        <version>0.975.8-1.15-alpha-SNAPSHOT</version>
 		</dependency>                
 		<dependency>
-			<groupId>net.citizensnpcs</groupId>
-			<artifactId>citizens</artifactId>
-			<version>2.0.22-SNAPSHOT</version>
-			<scope>provided</scope>
-		</dependency>
+	        <groupId>net.citizensnpcs</groupId>
+	        <artifactId>citizens</artifactId>
+	        <version>2.0.26-SNAPSHOT</version>
+        </dependency>
 		<dependency>
-        	<groupId>org.javatuples</groupId>
-        	<artifactId>javatuples</artifactId>
-        	<version>1.2</version>
-			<scope>compile</scope>
-    	</dependency>
+            <groupId>org.javatuples</groupId>
+            <artifactId>javatuples</artifactId>
+            <version>1.2</version>
+            <scope>compile</scope>
+        </dependency>
 	</dependencies>
 	<build>
 		<plugins>
+		    <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <includes>
+                                    <include>org.javatuples:javatuples</include>
+                                </includes>
+                            </artifactSet>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
-				<version>2.0</version>
+				<version>3.2.0</version>
 				<executions>
 					<execution>
 						<phase>package</phase>
@@ -65,6 +78,11 @@
 						</goals>
 						<configuration>
 							<minimizeJar>true</minimizeJar>
+							<artifactSet>
+                                <includes>
+                                    <include>org.javatuples:javatuples</include>
+                                </includes>
+                            </artifactSet>
 							<filters>
 								<filter>
 									<artifact>*:*</artifact>
@@ -85,6 +103,20 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+			</plugin>
+			<plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-compiler-plugin</artifactId>
+		        <version>3.7.0</version>
+		        <configuration>
+		            <source>1.8</source>
+		            <target>1.8</target>
+		        </configuration>
+	      	</plugin>
 		</plugins>
 	</build>
     <properties>
